@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Example</title>
+    <style>
+        .green {
+            color: green;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li id="li1">HELLO</li>
+        <li id="li2">WORLD</li>
+        <li>Example</li>
+    </ul>
+
+    <form id="myForm">
+        <input type="text" id="myInput">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Click event handler for the first <li> element
+        var firstLi = document.querySelector("#li1");
+        firstLi.addEventListener("click", function() {
+            this.classList.toggle("green");
+        });
+
+        // Mouseover event handler for the second <li> element
+        var secondLi = document.querySelector("#li2");
+        secondLi.addEventListener("mouseover", function() {
+            this.classList.add("yellow");
+        });
+
+        // Mouseout event handler for the second <li> element
+        secondLi.addEventListener("mouseout", function() {
+            this.classList.remove("yellow");
+        });
+
+        // Form submission event handler
+        var myForm = document.querySelector("#myForm");
+        myForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var myInput = document.querySelector("#myInput");
+            var inputValue = myInput.value.trim();
+
+            if (inputValue.length > 0) {
+                console.log("Input value:", inputValue);
+                // Perform further actions with the value, if needed
+            } else {
+                console.log("Please enter a valid value");
+            }
+        });
+    </script>
+</body>
+</html>
